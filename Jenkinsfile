@@ -17,8 +17,8 @@ pipeline {
     }
     stage('docker build') {
       steps {
+        unstash 'app'
         echo 'docker build'
-        unstable 'app'
         sh 'docker login -u rockzhaiy -p zhy13935889232 registry.cn-beijing.aliyuncs.com '
         sh 'pwd && ls'
         sh 'docker build -t registry.cn-beijing.aliyuncs.com/zhaiy/boot-pipeline-demo:1.0 .'
