@@ -12,6 +12,7 @@ pipeline {
       }
       steps {
         sh 'mvn -s "/usr/share/maven/ref/settings-aliyun.xml" -B -DskipTests clean package'
+        stash(name: 'app', includes: 'target/*.jar\'')
       }
     }
     stage('docker build') {
