@@ -18,6 +18,7 @@ pipeline {
       steps {
         echo 'docker build'
         sh 'docker login -u rockzhaiy -p zhy13935889232 registry.cn-beijing.aliyuncs.com '
+        sh 'pwd && ls'
         sh 'docker build registry.cn-beijing.aliyuncs.com/zhaiy/boot-pipeline-demo:1.0 .'
         sh 'docker push registry.cn-beijing.aliyuncs.com/zhaiy/boot-pipeline-demo:1.0'
         echo 'build end'
