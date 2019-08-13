@@ -26,5 +26,17 @@ pipeline {
         echo 'build end'
       }
     }
+    stage('deploy') {
+      agent {
+        docker {
+          image 'registry.cn-beijing.aliyuncs.com/zhaiy/helm-kubectl:v1.15.1 '
+          args '-v /data/.kube:/root/.kube'
+        }
+
+      }
+      steps {
+        sh 'kubectl apply -f deploy.yml'
+      }
+    }
   }
 }
