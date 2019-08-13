@@ -17,10 +17,16 @@ pipeline {
     stage('docker build') {
       steps {
         node(label: 'build') {
-          sh 'sidecar'
-        }
+          sh '''    docker.withRegistry(\'https://registry.example.com\', \'credentials-id\') {
 
+        def customImage = docker.build("my-image:${env.BUILD_ID}")
+
+        /* Push the container to the custom Registry */
+        customImage.push()
+    }'''
+          }
+
+        }
       }
     }
   }
-}
