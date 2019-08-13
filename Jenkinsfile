@@ -14,5 +14,10 @@ pipeline {
         sh 'mvn -s "/usr/share/maven/ref/settings-aliyun.xml" -B -DskipTests clean package'
       }
     }
+    stage('docker build') {
+      steps {
+        echo 'docker build'
+      }
+    }
   }
 }
