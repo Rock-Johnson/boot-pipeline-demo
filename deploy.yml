@@ -12,7 +12,7 @@ spec:
     spec:
       containers:
       - name: demo
-        image: registry.cn-beijing.aliyuncs.com/zhaiy/demo:v1
+        image: registry.cn-beijing.aliyuncs.com/zhaiy/boot-pipeline-demo:1.0
         ports:
         - containerPort: 8080
 
