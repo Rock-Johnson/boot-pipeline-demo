@@ -25,6 +25,6 @@ pipeline {
     }
   }
   environment {
-    ALIYUN_CREDS = 'jenkins-aliyun-creds'
+    ALIYUN_CREDS = 'credentials(jenkins-aliyun-creds)'
   }
 }
